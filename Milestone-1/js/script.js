@@ -8,6 +8,10 @@ var app = new Vue({
             avatar: '_io'
         },
 
+        userNewMessage: '',
+
+        activeContact: 0,
+
         contacts: [
             {
                 name: 'Michele',
@@ -34,7 +38,7 @@ var app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -56,7 +60,7 @@ var app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -78,7 +82,7 @@ var app = new Vue({
             {
                 name: 'Luisa',
                 avatar: '_4',
-                visible: true,
+                visible: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -96,6 +100,18 @@ var app = new Vue({
     },
 
     methods: {
+        sendMessage() {
+            if(this.userNewMessage.length > 0) {
+                const newMessage = {
+                    date: '20/03/2020 16:30:00',
+                    text: this.userNewMessage,
+                    status: 'sent'
+                };
 
+                this.contacts[this.activeContact].messages.push(newMessage);
+
+                this.userNewMessage = '';
+            }
+        }
     }
 })

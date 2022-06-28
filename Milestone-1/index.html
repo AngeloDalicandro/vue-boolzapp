@@ -81,14 +81,14 @@
                     <!-- CONTACT LIST -->
                     <div class="contacts-list">
 
-                        <div class="contact-card active">
+                        <div v-for="contact, index in contacts" class="contact-card" :class="{'active': index === activeContact}">
 
                             <!-- CONTACT TEMPLATE -->
-                            <img src="img/avatar_1.jpg" alt="[nome contatto]">
+                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
 
                             <div class="contact-info">
 
-                                <span>[nome contatto]</span>
+                                <span> {{ contact.name }} </span>
 
                                 <span> <br> </span>
 
@@ -107,10 +107,10 @@
                     <div class="top">
                         <div class="top-left">
 
-                            <img src="img/avatar_1.jpg" alt="[nome contatto]">
+                            <img :src="'img/avatar' + contacts[activeContact].avatar + '.jpg'" :alt="contacts[activeContact].name">
 
                             <div class="contact-info">
-                                <span> [nome contatto]</span>
+                                <span> {{ contacts[activeContact].name }} </span>
                                 <span>Ultimo accesso oggi alle [data contatto]</span>
                             </div>
                             
@@ -142,11 +142,12 @@
                         <div class="messages-wrapper">
 
                             <!-- TEMPLATE MESSAGGIO -->
-                            <div class="message">
+                            <div v-for="message in contacts[activeContact].messages" class="message" :class="{'sent' : message.status === 'sent'}">
                                 
-                                <span> [testo messaggio ]</span> 
+                                <span> {{ message.text }} </span> 
 
-                                <span class="message-date">[data messaggio]</span>
+                                <span class="message-date"> {{ message.date }} </span>
+
                             </div>
 
                         </div>
@@ -159,7 +160,7 @@
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
     
-                        <input type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="userNewMessage" @keyUp.enter="sendMessage()" type="text" placeholder="Scrivi un messaggio">
     
                         <div class="vocal-message">
                             <i class="fa-solid fa-microphone"></i>

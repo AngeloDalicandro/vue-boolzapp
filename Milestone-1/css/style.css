@@ -178,11 +178,13 @@
 
 .message {
     padding: 16px 8px;
+    min-width: 40%;
     max-width: 55%;
     margin: 10px 0;
     background-color: white;
     border-radius: 5px;
     position: relative;
+    overflow-wrap: break-word;
 }
 
 .sent {
