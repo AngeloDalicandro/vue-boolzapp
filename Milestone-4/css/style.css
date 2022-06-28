@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* COMMONS */
+
+.container {
+    height: 100vh;
+    background-color: #d9dbd3;
+    padding: 2rem 0;
+}
+
+.app-wrapper {
+    max-width: 80%;
+    min-width: 1000px;
+    margin: 0 auto;
+    height: calc(100vh - 4rem);
+    display: flex;
+    background-color: aquamarine;
+}
+
+.top ul {
+    list-style-type: none;
+    display: flex;
+    color: #b1b1b1;
+}
+
+.top ul li {
+    margin: 0 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.contact-info {
+    line-height: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+}
+
+.contact-info span:last-child {
+    font-size: 11px;
+    color: grey;
+}
+
+/* LEFT SIDE */
+
+/* LEFT TOP */
+.left-side {
+    width: 35%;
+    background-color: lightcyan;
+    
+}
+
+.top {
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    height: 4rem;
+    align-content: center;
+    padding: 0 5px;
+}
+
+.top img {
+    border-radius: 50%;
+    max-height: 3rem;
+    margin-left: 5px;
+}
+
+.top-left, .top-right {
+    line-height: 4rem;
+}
+
+.top-left {
+    display: flex;
+    align-items: center;
+}
+
+/* NOTIFICATION */
+.notification {
+    background-color: #8edafb;
+    display: flex;
+    height: 5rem;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.bell-icon-wrap {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: white;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.bell-icon-wrap i {
+    color: #8edafb;
+    line-height: 3rem;
+}
+
+.notification a {
+    color: #6293a8;
+}
+
+/* SEARCHBAR */
+.search-bar {
+    background-color: #fafafa;
+    padding: 5px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.bar {
+    background-color: white;
+    width: 100%;
+    color: grey;
+}
+
+.bar i {
+    margin: 0 10px;
+}
+
+.bar input {
+    border: none;
+    width: 80%;
+    padding: 5px;
+}
+
+/* CONTACTS LIST */
+.contacts-list {
+    overflow-y: auto;
+    background-color: white;
+    height: calc(100% - 12rem);
+}
+
+.contact-card {
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-card img {
+    border-radius: 50%;
+    max-height: 3rem;
+    margin: 0 10px;
+}
+
+.active {
+    background-color: #e9ebea;
+}
+
+/* RIGHT SIDE */
+.right-side {
+    width: 65%;
+    background-color: lightblue;
+    border-left: 1px solid #b1b1b1;
+}
+
+/* MESSAGES CONTAINER */
+.messages-container {
+    background-image: url('../img/mine.jpg');
+    height: calc(100% - 7rem);
+    overflow-y: auto;
+}
+
+.messages-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem ;
+}
+
+.message {
+    padding: 16px 8px;
+    min-width: 40%;
+    max-width: 55%;
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    overflow-wrap: break-word;
+}
+
+.sent {
+    align-self: flex-end;
+    background-color: #d5f9ba;    
+}
+
+.message-date {
+    color: grey;
+    font-size: 10px;
+    position: absolute;
+    bottom: 3px;
+    right: 5px;
+}
+
+/* MESSAGES INPUT */
+
+.messages-input {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #f3eeea;
+    color: #6a7376;
+}
+
+.emojis {
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.messages-input input {
+    width: 80%;
+    padding: 7px 5px;
+    border: none;
+    border-radius: 7px;
+}
+
+.vocal-message {
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+}
