@@ -142,6 +142,8 @@ var app = new Vue({
             }; 
 
             this.contacts[this.activeContact].messages.push(newMessage);
+
+            this.setPreview();
         },
 
         sendAnswer() {
