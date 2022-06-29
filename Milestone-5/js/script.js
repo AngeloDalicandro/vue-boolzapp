@@ -21,6 +21,7 @@ var app = new Vue({
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
+                messagePreview: null,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -46,6 +47,7 @@ var app = new Vue({
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
+                messagePreview: null,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -71,6 +73,7 @@ var app = new Vue({
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
+                messagePreview: null,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -96,6 +99,7 @@ var app = new Vue({
                 name: 'Luisa',
                 avatar: '_4',
                 visible: true,
+                messagePreview: null,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -174,6 +178,26 @@ var app = new Vue({
 
             this.contacts[this.activeContact].messages.splice(index, 1);
 
+        },
+
+        setPreview() {
+            const previews = [];
+
+            this.contacts.forEach((contact) => {
+                const index = contact.messages.length -1;
+                
+                const preview = contact.messages[index].text;
+
+                previews.push(preview);   
+            })
+
+            for(let i = 0; i < this.contacts.length; i++) {
+                this.contacts[i].messagePreview = previews[i];
+            };
         }
+    },
+
+    mounted () {
+        this.setPreview();
     }
 })

@@ -90,7 +90,7 @@
 
                                 <span> {{ contact.name }} </span>
 
-                                <span> <br> </span>
+                                <span> {{ contact.messagePreview }} </span>
 
                             </div>
 
@@ -176,7 +176,7 @@
                             <i class="fa-solid fa-face-smile"></i>
                         </div>
     
-                        <input v-model="userNewMessage" @keyUp.enter="sendMessage(), sendAnswer()" type="text" placeholder="Scrivi un messaggio">
+                        <input v-model="userNewMessage" @keyUp.enter="sendMessage(), sendAnswer(), setPreview()" type="text" placeholder="Scrivi un messaggio">
     
                         <div class="vocal-message">
                             <i class="fa-solid fa-microphone"></i>
