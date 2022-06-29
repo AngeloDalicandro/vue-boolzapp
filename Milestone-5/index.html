@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.3/dayjs.min.js" integrity="sha512-Ot7ArUEhJDU0cwoBNNnWe487kjL5wAOsIYig8llY/l0P2TUFwgsAHVmrZMHsT8NGo+HwkjTJsNErS6QqIkBxDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
@@ -84,14 +85,20 @@
                         <div v-for="contact, index in contacts" v-if="contact.visible" @click="setActiveContact(index)" class="contact-card" :class="{'active': index === activeContact}">
 
                             <!-- CONTACT TEMPLATE -->
-                            <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+                            <div class="contact-data">
+                                <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
 
-                            <div class="contact-info">
+                                <div class="contact-info">
+    
+                                    <span> {{ contact.name }} </span>
+    
+                                    <span class="ellipsis-date"> {{ contact.messagePreview }} </span>
+    
+                                </div>
+                            </div>
 
-                                <span> {{ contact.name }} </span>
-
-                                <span> {{ contact.messagePreview }} </span>
-
+                            <div class="last-message-date">
+                                {{ contact.datePreview }}
                             </div>
 
                         </div>
@@ -111,7 +118,7 @@
 
                             <div class="contact-info">
                                 <span> {{ contacts[activeContact].name }} </span>
-                                <span>Ultimo accesso oggi alle [data contatto]</span>
+                                <span> Ultimo accesso oggi alle {{ contacts[activeContact].datePreview }} </span>
                             </div>
                             
 

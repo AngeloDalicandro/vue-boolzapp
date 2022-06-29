@@ -14,6 +14,8 @@ var app = new Vue({
 
         activeContact: 0,
 
+        lastDate: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+
         contactSearch: '',
 
         contacts: [
@@ -22,6 +24,7 @@ var app = new Vue({
                 avatar: '_1',
                 visible: true,
                 messagePreview: null,
+                datePreview: null,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -48,6 +51,7 @@ var app = new Vue({
                 avatar: '_2',
                 visible: true,
                 messagePreview: null,
+                datePreview: null,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -74,6 +78,7 @@ var app = new Vue({
                 avatar: '_3',
                 visible: true,
                 messagePreview: null,
+                datePreview: null,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -100,6 +105,7 @@ var app = new Vue({
                 avatar: '_4',
                 visible: true,
                 messagePreview: null,
+                datePreview: null,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -122,7 +128,7 @@ var app = new Vue({
         sendMessage() {
             if(this.userNewMessage.length > 0) {
                 const newMessage = {
-                    date: '20/03/2020 16:30:00',
+                    date: this.lastDate,
                     text: this.userNewMessage,
                     status: 'sent'
                 };
@@ -135,7 +141,7 @@ var app = new Vue({
 
         generateAnswer() {
             const newMessage = {
-                date: '20/03/2020 16:30:00',
+                date: this.lastDate,
                 text: 'ok',
                 status: 'received',
                 activeMenu: false
@@ -184,17 +190,22 @@ var app = new Vue({
 
         setPreview() {
             const previews = [];
+            const datePreviews = []
 
             this.contacts.forEach((contact) => {
                 const index = contact.messages.length -1;
                 
                 const preview = contact.messages[index].text;
 
+                const datePreview = contact.messages[index].date;
+
                 previews.push(preview);   
+                datePreviews.push(datePreview);
             })
 
             for(let i = 0; i < this.contacts.length; i++) {
                 this.contacts[i].messagePreview = previews[i];
+                this.contacts[i].datePreview = datePreviews[i];
             };
         }
     },

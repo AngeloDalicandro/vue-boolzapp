@@ -136,10 +136,17 @@
     overflow-y: auto;
     background-color: white;
     height: calc(100% - 12rem);
+    overflow-x: hidden;
 }
 
 .contact-card {
     height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-data {
     display: flex;
     align-items: center;
 }
@@ -150,8 +157,23 @@
     margin: 0 10px;
 }
 
+.contact-info .ellipsis-date {
+    overflow: hidden;
+    width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .active {
     background-color: #e9ebea;
+}
+
+.last-message-date {
+    color: grey;
+    font-size: 11px;
+    margin-right: 5px;
+    margin-top: 5px;
+    align-self: start;
 }
 
 /* RIGHT SIDE */
