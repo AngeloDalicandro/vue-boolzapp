@@ -142,7 +142,7 @@
                         <div class="messages-wrapper">
 
                             <!-- TEMPLATE MESSAGGIO -->
-                            <div v-for="message, index in contacts[activeContact].messages" class="message" :class="{'sent' : message.status === 'sent'}">
+                            <div v-for="message, index in contacts[activeContact].messages" class="message" :class="{'sent' : message.status === 'sent', 'received' : message.status === 'received'}">
                                 
                                 <span> {{ message.text }} </span> 
 

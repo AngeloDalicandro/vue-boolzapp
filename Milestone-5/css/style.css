@@ -179,13 +179,17 @@
 .message {
     padding: 16px 8px;
     padding-right: 1.5rem;
-    min-width: 40%;
+    min-width: 20%;
     max-width: 55%;
     margin: 10px 0;
-    background-color: white;
     border-radius: 5px;
     position: relative;
     overflow-wrap: break-word;
+}
+
+.received {
+    background-color: white;
+    align-self: flex-start;
 }
 
 .sent {
